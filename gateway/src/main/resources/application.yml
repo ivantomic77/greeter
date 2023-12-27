@@ -1,0 +1,28 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: greeting-service
+          uri: ${GREETING-SERVICE-URI:http://localhost:8082}
+          predicates:
+            - Path=/greet
+          filters:
+            - PrefixPath=/api/v1.0
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_URI:http://localhost:18080}/realms/springboot-microservice-realm
+          jwk-set-uri: ${KEYCLOAK_URI_INTERNAL:http://localhost:18080}/realms/springboot-microservice-realm/protocol/openid-connect/certs
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
