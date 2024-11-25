@@ -16,7 +16,7 @@ public class GreetController {
     }
 
     @GetMapping("/greet")
-    public ResponseEntity<String> greet(@RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<String> greet(@RequestHeader("x-user-auth") String authHeader, @RequestHeader("Authorization") String auth) {
         return ResponseEntity.ok(greetService.greet(authHeader));
     }
 }

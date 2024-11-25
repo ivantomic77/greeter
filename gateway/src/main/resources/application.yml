@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT:8080}
 spring:
   cloud:
     gateway:
@@ -26,3 +26,11 @@ management:
       show-details: always
     gateway:
       enabled: true
+
+app:
+  grant-type: client_credentials
+  client-id: microservice-auth
+  client-secret: secret
+  scope: email
+  token-lifespan: 5
+  auth-url: ${KEYCLOAK_URI_INTERNAL:http://localhost:18080}/realms/springboot-microservice-realm/protocol/openid-connect/token

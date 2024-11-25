@@ -21,7 +21,7 @@ public class GreetService {
 
         if (!jsonObject.has("name")){
             // In case when First name or Last name property is not set for that user in Keycloak
-            throw new IllegalArgumentException("This user doesn't have an assigned name. Check your Keycloak user config.");
+            throw new IllegalArgumentException("This user doesn't have an assigned name. Check your Identity Provider user config.");
         }
         return jsonObject.getString("name");
     }

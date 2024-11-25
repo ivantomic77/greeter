@@ -1,2 +1,10 @@
 server:
-  port: 8082
+  port: ${SERVER_PORT:8080}
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${KEYCLOAK_URI_INTERNAL:http://localhost:18080}/realms/springboot-microservice-realm/protocol/openid-connect/certs
+          issuer-uri: ${KEYCLOAK_URI:http://localhost:18080}/realms/springboot-microservice-realm
