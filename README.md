@@ -55,7 +55,7 @@ docker compose up -d
 ## Usage
 ### Keycloak script setup
 
-Run in terminal:
+Run in terminal (git bash for Windows users 😁):
 ```shell
 docker exec -it keycloak sh ./scripts/create_user.sh
 ```
