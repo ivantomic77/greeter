@@ -1,5 +1,20 @@
 # Spring Gateway with Zero Trust Security Example
 
+## Table of Contents
+
+- [Spring Gateway with Zero Trust Security Example](#spring-gateway-with-zero-trust-security-example)
+    - [Table of Contents](#table-of-contents)
+    - [Goals of this example](#goals-of-this-example)
+    - [Components](#components)
+    - [Folder structure](#folder-structure)
+    - [Workflow](#workflow)
+    - [Requirements](#requirements)
+    - [How to run](#how-to-run)
+    - [Usage](#usage)
+        - [Keycloak script setup](#keycloak-script-setup)
+        - [Keycloak manual setup](#keycloak-manual-setup)
+        - [Use it](#use-it)
+
 Spring Cloud Gateway helps route and filter requests to the right places based on things like paths and headers.
 Built on Spring WebFlux, it's got handy features like load balancing and **security**.
 
@@ -23,13 +38,14 @@ Consequently, attacking such a system becomes significantly more challenging.
 
 ## Folder structure
 
-| folder            | description                                                   |
-|-------------------|---------------------------------------------------------------|
-| /docs             | Contains resources for readme                                 |
-| /gateway          | Gateway service code                                          |
-| /greeter-service  | Greeter service code                                          |
-| /integration-test | Contains postman collection and environment                   |
-| /keycloak-exports | Keycloak realm export that will be loaded on Keycloak startup |
+| folder            | description                                                                            |
+|-------------------|----------------------------------------------------------------------------------------|
+| /docs             | Contains resources for readme                                                          |
+| /gateway          | Gateway service code                                                                   |
+| /greeter-service  | Greeter service code                                                                   |
+| /integration-test | Contains postman collection and environment                                            |
+| /keycloak-exports | Keycloak realm export that will be loaded on Keycloak startup                          |
+| /scripts          | Runnable scripts to help you set up the project [[look here]](#keycloak-script-setup)  |
 
 ## Workflow
 
@@ -69,7 +85,7 @@ Credentials of the created user:
 ### Keycloak manual setup
 - After all services are running open Keycloak at *http://localhost:18080* and sign in as admin (pass: admin)
 - Switch realm to *springboot-microservice-realm*
-- Create user (don't forget to set him First and Last name):
+- Create user (don't forget to set him First, Last name, email and email verified checkbox):
 
 ![Create user](./docs/user-creation.png)
 
